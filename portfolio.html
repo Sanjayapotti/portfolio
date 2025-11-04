@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POTTI SANJAYA | Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+<style>
+/* ---------- Global ---------- */
+body {
+  background-color: #364e66; /* Deep slate blue-gray background */
+  color: #e6edf3; /* Soft off-white text */
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background-color: rgba(30, 56, 95, 0.95); /* Deep navy */
+  border-bottom: 2px solid #4db6ac; /* Teal accent */
+  backdrop-filter: blur(8px);
+}
+
+.navbar .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+  color: #d9e6ec !important;
+  margin: 0 12px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.navbar .nav-link:hover {
+  color: #4db6ac !important;
+  transform: translateY(-2px);
+}
+
+/* ---------- Header / Hero Section ---------- */
+header {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2000&q=80') 
+    no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(22, 44, 78, 0.7); /* Overlay tint */
+  z-index: 0;
+}
+
+header .container {
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f8dada;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #d9e6ec;
+}
+
+.btn-outline-light {
+  border-color: #4db6ac;
+  color: #4db6ac;
+  transition: all 0.3s;
+}
+
+.btn-outline-light:hover {
+  background: #4db6ac;
+  color: #102027;
+  box-shadow: 0 0 10px #4db6ac;
+}
+
+/* ---------- Section Layout ---------- */
+section {
+  padding: 70px 20px;
+  background-color: #253445;
+}
+
+section:nth-child(even) {
+  background-color: #1b2836;
+}
+
+section h2 {
+  color: #4db6ac;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background-color: #15202b;
+  border: 1px solid #324b59;
+  border-radius: 10px;
+  color: #e6edf3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 18px rgba(77, 182, 172, 0.6);
+}
+
+.card h4, .card h5 {
+  color: #f6d1d1;
+}
+
+.card p {
+  color: #cbd5dc;
+}
+
+/* ---------- Project Cards ---------- */
+.project-card {
+  background-color: #192734;
+  border: 1px solid #3b596f;
+}
+
+.project-card h5 {
+  color: #4db6ac;
+  font-weight: 600;
+}
+
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.08);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  background-color: #111a23;
+  padding: 25px;
+  margin-top: 50px;
+  color: #d3e0e6;
+  border-top: 4px solid #4db6ac;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+</style>
+
+/* ---------- Scroll Animation ---------- */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Contact Buttons ---------- */
+#contact .btn-primary {
+  background-color: #4db6ac;
+  border: none;
+  transition: 0.3s;
+}
+
+#contact .btn-primary:hover {
+  background-color: #367f79;
+  box-shadow: 0 0 10px rgba(77, 182, 172, 0.7);
+}
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-light fw-bold" href="#">SANJAYA</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon bg-light rounded"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#training">Training</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <h1>POTTI SANJAYA</h1>
+    <p>UI/UX Developer | Front-End Developer</p>
+    <a href="#contact" class="btn btn-outline-light mt-3 px-4 py-2">Contact Me</a>
+      <a href="#" class="btn btn-outline-light mt-3 px-4 py-2">Resume</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" data-animate>
+  <div class="container text-center">
+    <h2>About Me</h2>
+    <p class="mt-3">I am a passionate Web Developer skilled in HTML, CSS, JavaScript, Bootstrap, and React. I love building clean and visually appealing user-friendly websites.</p>
+  </div>
+</section>
+
+<section id="education" data-animate>
+  <div class="container text-center">
+    <h2>Education</h2>
+    <div class="row justify-content-center mt-4">
+         <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h4>MCA</h4>
+          <p class="text-warning fw-bold">2023 - 2025</p>
+          <p>SIMS College</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h4>BSc Computer Science</h4>
+          <p class="text-warning fw-bold">2019 - 2022</p>
+          <p>Pydah College For Women's</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h4>Intermediate (MPC)</h4>
+          <p class="text-warning fw-bold">2017 - 2019</p>
+          <p>Govt. Visakha Junior College For Women's</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h4>SSC</h4>
+          <p class="text-warning fw-bold">2016 - 2017</p>
+          <p>Sri Sivananadha Public School</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="training" data-animate>
+  <div class="container text-center">
+    <h2>Training</h2>
+            <div class="card p-3 mb-3">
+      <h5>UI/UX Developer Training</h5>
+      <span>August 2025 – November 2025</span>
+      <p>Tech Mahindra SMART Academy — Specialized in UI/UX Design, HTML5, CSS, Bootstrap, JavaScript, React, and Figma.</p>
+    </div>
+   
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" data-animate>
+  <div class="container text-center">
+    <h2>Technical Skills</h2>
+    <div class="row mt-4 justify-content-center">
+      <div class="col-md-2 col-5">
+        <div class="card">
+          <div class="mt-2"><i class="fab fa-html5 fa-3x" style="color:#e34f26;"></i></div>
+          <h5 class="mt-2">HTML</h5>
+          <p>Semantic & clean markup language</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-5">
+        <div class="card">
+          <div class="mt-2"><i class="fab fa-css3-alt fa-3x" style="color:#264de4;"></i></div>
+          <h5 class="mt-2">CSS</h5>
+          <p>Responsive & modern layouts</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-5">
+        <div class="card">
+          <div class="mt-2"><i class="fab fa-bootstrap fa-3x" style="color:#7952b3;"></i></div>
+          <h5 class="mt-2">Bootstrap</h5>
+          <p>Mobile-first & stylish designs</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-5">
+        <div class="card">
+          <div class="mt-2"><i class="fab fa-js-square fa-3x" style="color:#f7df1e;"></i></div>
+          <h5 class="mt-2">JavaScript</h5>
+          <p>Interactive & dynamic features</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-5">
+        <div class="card">
+          <div class="mt-2"><i class="fab fa-react fa-3x" style="color:#61dafb;"></i></div>
+          <h5 class="mt-2">React</h5>
+          <p>Modern web apps & components</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" data-animate>
+  <div class="container text-center">
+    <h2>Projects</h2>
+    <div class="row justify-content-center mt-4">
+
+      <div class="col-md-6 mb-4">
+        <div class="card project-card">
+          <div class="card-body">
+            <h5>Smart Academy </h5>
+            <a href="https://sanjayapotti.github.io/smart" class="btn btn-outline-light">View </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card project-card">
+          <div class="card-body">
+            <h5>Calculator</h5>
+            <a href="https://sanjayapotti.github.io/calculator/" class="btn btn-outline-light">View </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card project-card">
+             <div class="card-body">
+            <h5>Cat Image Gallery</h5>
+            <a href="https://sanjayapotti.github.io/AXIOS/" class="btn btn-outline-light">View </a>
+          </div>
+        </div>
+      </div>
+
+       <div class="col-md-6 mb-4">
+        <div class="card project-card">
+             <div class="card-body">
+            <h5>To Do List</h5>
+            <a href="https://sanjayapotti.github.io/Todolist/" class="btn btn-outline-light">View </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" data-animate>
+  <div class="container text-center">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:sanju.potti222@gmail.com">sanju.potti222@gmail.com</a></p>
+    <p>Phone: +91 8297629647</p>
+    <a href="https://www.linkedin.com/in/potti-sanjaya-79993126b" class="btn btn-primary">LinkedIn</a>
+    <a href="https://github.com/Sanjayapotti" class="btn btn-primary">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 potti-sanjaya | All Rights Reserved</p>
+</footer>
+
+<script>
+  const animatedElements = document.querySelectorAll('[data-animate]');
+  window.addEventListener('scroll', () => {
+    animatedElements.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('visible');
+    });
+  });
+</script>
+</body>
+</html>
